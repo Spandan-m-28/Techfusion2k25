@@ -175,8 +175,8 @@ function App() {
       </section>
 
       {/* About Techfusion Section */}
-      <section className="bg-[#a74242] min-h-[90vh] flex items-center justify-center">
-        <div className="relative w-[70vw] bg-[#1b1b1b] min-h-[70vh] rounded-4xl">
+      <section className="bg-[#1b1b1b] min-h-[90vh] flex items-center justify-center">
+        <div className="relative w-[70vw] bg-[#1b1b1b] border-yellow-400 border-4 min-h-[70vh] rounded-4xl text-white">
           <img
             src="https://res.cloudinary.com/dmeicehn2/image/upload/v1758167935/1c51379e-5067-48c0-8812-c29d293976bc_1_iv04xy.png"
             alt="Description"
@@ -208,7 +208,8 @@ function App() {
       </section>
 
       {/* Other Page Content */}
-      <section className="">
+      <section className="bg-[#1b1b1b] text-white">
+        <p className="text-3xl text-center">Our Events</p>
         <CardsSection cards={cards} />
       </section>
 
