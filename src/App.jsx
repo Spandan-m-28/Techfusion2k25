@@ -7,7 +7,6 @@ import { ScrollSmoother } from "gsap/ScrollSmoother";
 import CardsSection from "./Components/CardSection";
 import { ImageGallery } from "./Components/ImageGallery";
 import Footer from "./Components/Footer";
-import EventCards from "./Components/Events";
 
 gsap.registerPlugin(ScrollTrigger, ScrollSmoother);
 
@@ -50,7 +49,7 @@ function App() {
     const smoother = ScrollSmoother.create({
       wrapper: "#smooth-wrapper", // outer div
       content: "#smooth-content", // inner scrollable div
-      smooth: 1.2, // adjust smoothness (1 = normal, >1 = smoother)
+      smooth: 3, // adjust smoothness (1 = normal, >1 = smoother)
       effects: true, // allow data-speed / data-lag
     });
 
@@ -93,36 +92,16 @@ function App() {
     // Flying machine 2 (Right → Left, tilted, slower, different altitude)
     gsap.fromTo(
       ".flying-machine-2",
-      { x: "120vw", y: 80, rotate: -10 }, // start further right, tilted
+      { x: "-130vw", y: 30, rotate: 5 }, // start from left
       {
-        x: "-130vw", // go further left
-        y: 30, // slightly upward drift
-        rotate: 5, // tilt in opposite direction
-        duration: 16, // slower than first
+        x: "120vw", // go to right
+        y: 80, // slightly downward drift
+        rotate: -10, // tilt in opposite direction
+        duration: 16, // same speed
         ease: "linear",
         repeat: -1,
       }
     );
-
-    // Flicker effect for the main text (2 times)
-    gsap.to(".flicker-text", {
-      opacity: 0.2, // fade out
-      duration: 0.1, // speed of flicker
-      repeat: 1, // 1 repeat = 2 total flickers
-      yoyo: true, // fade in and out
-      ease: "power1.inOut",
-      repeatDelay: 0.05, // optional small delay
-    });
-
-    // Flicker effect for subtext (2 times)
-    gsap.to(".flicker-subtext", {
-      opacity: 0.3,
-      duration: 0.15,
-      repeat: 1,
-      yoyo: true,
-      ease: "power1.inOut",
-      repeatDelay: 0.1,
-    });
 
     gsap.to(".machine", {
       y: -20,
@@ -131,6 +110,36 @@ function App() {
       yoyo: true,
       ease: "power1.inOut",
     });
+
+    gsap.fromTo(
+      ".flying-machine-2",
+      { x: "-20vw", y: 30, rotate: 5 }, // closer to the screen
+      {
+        x: "120vw", // exit to the right
+        y: 80,
+        rotate: -10,
+        duration: 16,
+        ease: "linear",
+        repeat: -1,
+      }
+    );
+
+    gsap.fromTo(
+    ".text-up",
+    { y: 100, opacity: 0 },
+    {
+      y: 0,
+      opacity: 1,
+      duration: 1.2,
+      ease: "power3.out",
+      stagger: 0.2,
+      scrollTrigger: {
+        trigger: ".text-up",   // start when text-up elements enter
+        start: "top 80%",      // play when element’s top hits 80% of viewport
+        toggleActions: "play none none reverse", 
+      },
+    }
+  );
 
     return () => {
       smoother.kill(); // cleanup on unmount
@@ -175,9 +184,9 @@ function App() {
 
             {/* Flying Machine 2 (Right → Left, tilted) */}
             <img
-              src="https://res.cloudinary.com/dmeicehn2/image/upload/v1758167935/1c51379e-5067-48c0-8812-c29d293976bc_1_iv04xy.png"
+              src="https://res.cloudinary.com/dmeicehn2/image/upload/v1758383421/7e6ab61e-eecb-4c9e-8efb-b2039c2dcdb5_qkia3e.png"
               alt="Flying Machine 2"
-              className="flying-machine-2 absolute bottom-64 w-32 z-30 opacity-90"
+              className="flying-machine-2 absolute bottom-72 w-44 z-30 opacity-100"
             />
 
             {/* Overlay Text */}
@@ -198,8 +207,10 @@ function App() {
                 className="machine absolute -top-8 -right-20 h-40 rounded-lg"
               />
 
-              <p className="text-3xl text-center mt-7">Techfusion</p>
-              <div className="w-[80%] mx-auto mt-10 text-lg">
+              {/* Added class "about-text" to heading too */}
+              <p className="text-3xl text-center mt-7 text-up">Techfusion</p>
+
+              <div className="w-[80%] mx-auto mt-10 text-lg text-up">
                 <p>
                   Lorem ipsum dolor sit amet consectetur adipisicing elit Lorem
                   ipsum dolor sit amet consectetur, adipisicing elit. Recusandae
@@ -225,20 +236,18 @@ function App() {
 
           {/* Other Page Content */}
           <section className="bg-[#1b1b1b] text-white">
-            <p className="text-3xl text-center">Our Events</p>
+            <p className="text-3xl text-center pt-8">Our Events</p>
             <CardsSection cards={cards} />
           </section>
-          <section><EventCards/></section>
 
-          <section className="h-screen bg-[#1b1b1b]">
-            <div className="w-[70vw] pt-24 mx-auto">
+          <section className="h-screen bg-[#1b1b1b] text-white pt-11">
+            <p className="text-3xl text-center">Insights from last year</p>
+            <div className="w-[70vw] pt-7 mx-auto">
               <ImageGallery />
             </div>
           </section>
 
           <Footer />
-
-          
         </div>
       </div>
     </>
