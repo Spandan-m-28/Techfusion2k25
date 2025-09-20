@@ -14,7 +14,7 @@ const Navbar = () => {
         </div>
 
         {/* Navigation links */}
-        <div className="mr-9 flex justify-center items-center space-x-7 text-black">
+        <div className="mr-9 flex justify-center items-center space-x-7 text-white">
           <a className="relative text-lg group" href="#">
             About&nbsp;Us
             <span className="absolute left-1/2 bottom-0 w-0 h-0.5 bg-black transition-all duration-300 group-hover:w-full group-hover:left-0"></span>
