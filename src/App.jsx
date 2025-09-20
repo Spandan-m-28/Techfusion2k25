@@ -125,21 +125,21 @@ function App() {
     );
 
     gsap.fromTo(
-    ".text-up",
-    { y: 100, opacity: 0 },
-    {
-      y: 0,
-      opacity: 1,
-      duration: 1.2,
-      ease: "power3.out",
-      stagger: 0.2,
-      scrollTrigger: {
-        trigger: ".text-up",   // start when text-up elements enter
-        start: "top 80%",      // play when element’s top hits 80% of viewport
-        toggleActions: "play none none reverse", 
-      },
-    }
-  );
+      ".text-up",
+      { y: 100, opacity: 0 },
+      {
+        y: 0,
+        opacity: 1,
+        duration: 1.2,
+        ease: "power3.out",
+        stagger: 0.2,
+        scrollTrigger: {
+          trigger: ".text-up", // start when text-up elements enter
+          start: "top 80%", // play when element’s top hits 80% of viewport
+          toggleActions: "play none none reverse",
+        },
+      }
+    );
 
     return () => {
       smoother.kill(); // cleanup on unmount
@@ -235,9 +235,16 @@ function App() {
           </section>
 
           {/* Other Page Content */}
-          <section className="bg-[#1b1b1b] text-white">
+          <section className="bg-[#1b1b1b] text-white relative overflow-hidden">
             <p className="text-3xl text-center pt-8">Our Events</p>
             <CardsSection cards={cards} />
+
+            {/* City Image at bottom left */}
+            <img
+              src="https://res.cloudinary.com/dmeicehn2/image/upload/v1758386355/1c0345de-d51a-45be-bf39-f10c75b1dc71_b2qtke.png"
+              alt="City"
+              className="absolute bottom-4 left-3 w-48 md:w-72 lg:w-3xl object-contain pointer-events-none"
+            />
           </section>
 
           <section className="h-screen bg-[#1b1b1b] text-white pt-11">

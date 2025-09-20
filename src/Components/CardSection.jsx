@@ -59,7 +59,7 @@ const CardsSection = ({ cards }) => {
             ref={(el) => {
               if (el) cardsRef.current[index] = el;
             }}
-            className="flex-shrink-0" // prevent flex items from shrinking too much
+            className="flex-shrink-0 z-40" // prevent flex items from shrinking too much
           >
             <TiltedCard
               imageSrc={card.imageSrc}
