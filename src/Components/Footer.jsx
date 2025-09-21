@@ -69,7 +69,7 @@ export default function Footer() {
         {/* SAIT Logo Section */}
         <div className="flex justify-center md:justify-end">
           <img
-            src="https://res.cloudinary.com/dmeicehn2/image/upload/v1758169359/sait_ph5ytb.png"
+            src="https://res.cloudinary.com/dmeicehn2/image/upload/v1758469447/1dfdabd2-d4e3-4dcf-8f9c-1406651f3b3c_c5rsvw.png"
             alt="SAIT"
             className="h-36"
           />

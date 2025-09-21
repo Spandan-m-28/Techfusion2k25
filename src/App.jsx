@@ -18,8 +18,8 @@ function App() {
     {
       imageSrc:
         "https://i.scdn.co/image/ab67616d0000b273d9985092cd88bffd97653b58",
-      altText: "Cloudverse",
-      title: "Cloudverse",
+      altText: "CloudVerse",
+      title: "CloudVerse",
       textContent:
         "This is Kendrick Lamar's GNX album cover with some description.",
       link: "#",
@@ -27,7 +27,7 @@ function App() {
     {
       imageSrc:
         "https://i.scdn.co/image/ab67616d0000b27335b28ec4355f7eebfdfc31d52",
-      altText: "Code Duet",
+      altText: "CodeDuet",
       title: "Code Duet",
       textContent:
         "The Off-Season showcases J. Cole's lyrical mastery and storytelling.",
@@ -36,16 +36,16 @@ function App() {
     {
       imageSrc:
         "https://i.scdn.co/image/ab67616d0000b2739b0ed2236b9e6b7d41cdbb0b",
-      altText: "Code Crush",
-      title: "Code Crush",
+      altText: "CodeCrush",
+      title: "CodeCrush",
       textContent: "Scorpion by Drake mixes rap and R&B into a double album.",
       link: "#",
     },
     {
       imageSrc:
         "https://i.scdn.co/image/ab67616d0000b27361a6e47a8c5e54d61f87f3ac",
-      altText: "Chess",
-      title: "Chess",
+      altText: "CheckMate",
+      title: "CheckMate",
       textContent:
         "Utopia is Travis Scott's latest experimental hip-hop project.",
       link: "#",
@@ -67,7 +67,7 @@ function App() {
         return new Promise((resolve) => {
           const img = new Image();
           img.onload = resolve;
-          img.onerror = resolve; // resolve even if image fails to load
+          img.onerror = resolve;
           img.src = url;
         });
       });
@@ -243,10 +243,10 @@ function App() {
           </section>
 
           {/* About Techfusion Section */}
-          <AboutTechfusion animationsReady={!loading} />
+          <AboutTechfusion id="aboutUs" animationsReady={!loading} />
 
           {/* Events Section */}
-          <section className="bg-[#1b1b1b] text-white relative overflow-hidden">
+          <section id="events" className="bg-[#1b1b1b] text-white relative overflow-hidden">
             <p className="orbitron-font text-3xl text-center pt-8">Our Events</p>
             <CardsSection cards={cards} />
 
