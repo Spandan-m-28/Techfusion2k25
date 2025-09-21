@@ -259,7 +259,7 @@ function App() {
           </section>
 
           {/* Image gallery Section */}
-          <section className="h-[80vh] md:h-[110vh] bg-[#1b1b1b] text-white pt-11">
+          <section className="h-[80vh] md:h-[100vh] bg-[#1b1b1b] text-white pt-11">
             <p className="text-3xl text-center">Insights from last year</p>
             <div className="w-[70vw] pt-7 mx-auto">
               <ImageGallery />
