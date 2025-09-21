@@ -4,29 +4,29 @@ export default function Footer() {
       <div className="max-w-7xl mx-auto px-4 grid grid-cols-1 md:grid-cols-3 gap-8 items-center">
         {/* Sponsors Section */}
         <div className="flex flex-col items-center md:items-start">
-          <h3 className="text-lg font-semibold mb-4">Our Sponsors</h3>
-          <div className="flex gap-6 items-center">
+          <h3 className="text-lg font-semibold mb-4 text-center">Our Sponsors</h3>
+          <div className="flex gap-6 justify-center flex-wrap">
             {/* Replace with sponsor SVGs */}
             <img
               src="https://yt3.googleusercontent.com/8SG9uDv2ITO754-r_Uoq4_nkuBBzY8iD6piQ6t85eEANlA9v-9jTE9VFJ4YE2CkZftIQYlVM=s900-c-k-c0x00ffffff-no-rj"
-              alt="Disha"
+              alt="Sponsor 1"
               className="h-28 rounded-full"
             />
             <img
               src="https://yt3.googleusercontent.com/8SG9uDv2ITO754-r_Uoq4_nkuBBzY8iD6piQ6t85eEANlA9v-9jTE9VFJ4YE2CkZftIQYlVM=s900-c-k-c0x00ffffff-no-rj"
-              alt="Universe"
+              alt="Sponsor 2"
               className="h-28 rounded-full"
             />
             <img
               src="https://yt3.googleusercontent.com/8SG9uDv2ITO754-r_Uoq4_nkuBBzY8iD6piQ6t85eEANlA9v-9jTE9VFJ4YE2CkZftIQYlVM=s900-c-k-c0x00ffffff-no-rj"
-              alt="Linux Handbook"
+              alt="Sponsor 3"
               className="h-28 rounded-full"
             />
           </div>
         </div>
 
         {/* Social Section */}
-        <div className="flex flex-col items-start text-left ml-32">
+        <div className="flex flex-col items-start text-left ml-12 md:ml-32 justify-center">
           <h3 className="text-lg font-semibold mb-2">Stay Tuned!</h3>
           <div className="flex gap-5 items-center">
             {/* Replace with your SVGs for Instagram, LinkedIn, GitHub, Twitter (X), Discord */}
