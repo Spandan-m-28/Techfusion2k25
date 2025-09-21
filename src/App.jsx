@@ -225,7 +225,7 @@ function App() {
                   voluptates vero, impedit deleniti porro iure tempora quaerat
                   fugit aliquam!
                 </p>
-                <p className="mt-6">
+                <p className="mt-6 pb-5">
                   Lorem ipsum dolor, sit amet consectetur adipisicing elit Lorem
                   ipsum dolor sit amet consectetur adipisicing elit. Earum autem
                   quas reprehenderit quod. Possimus, hic. Sit molestiae incidunt
@@ -247,12 +247,12 @@ function App() {
             <img
               src="https://res.cloudinary.com/dmeicehn2/image/upload/v1758386355/1c0345de-d51a-45be-bf39-f10c75b1dc71_b2qtke.png"
               alt="City"
-              className="absolute bottom-4 left-3 w-48 md:w-72 lg:w-3xl object-contain pointer-events-none"
+              className="absolute bottom-5 left-2 md:bottom-4 md:left-3 w-[90vw] md:w-3xl  object-contain pointer-events-none"
             />
           </section>
 
           {/* Image galary Section */}
-          <section className="h-screen bg-[#1b1b1b] text-white pt-11">
+          <section className=" h-[80vh] md:-screen bg-[#1b1b1b] text-white pt-11">
             <p className="text-3xl text-center">Insights from last year</p>
             <div className="w-[70vw] pt-7 mx-auto">
               <ImageGallery />

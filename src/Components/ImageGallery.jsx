@@ -54,7 +54,7 @@ export function ImageGallery() {
           alt="active"
         />
       </div>
-      <div className="grid grid-cols-6 gap-4">
+      <div className="grid grid-cols-2 md:grid-cols-6 gap-4">
         {data.map(({ imgelink }, i) => (
           <div key={i}>
             <img
