@@ -1,4 +1,4 @@
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import "./App.css";
 import Navbar from "./Components/Navbar";
 import gsap from "gsap";
@@ -7,10 +7,13 @@ import { ScrollSmoother } from "gsap/ScrollSmoother";
 import CardsSection from "./Components/CardSection";
 import { ImageGallery } from "./Components/ImageGallery";
 import Footer from "./Components/Footer";
+import AboutTechfusion from "./Components/AboutTechfusion";
 
 gsap.registerPlugin(ScrollTrigger, ScrollSmoother);
 
 function App() {
+  const [loading, setLoading] = useState(true);
+
   const cards = [
     {
       imageSrc:
@@ -50,105 +53,142 @@ function App() {
   ];
 
   useEffect(() => {
-    const smoother = ScrollSmoother.create({
-      wrapper: "#smooth-wrapper", // outer div
-      content: "#smooth-content", // inner scrollable div
-      smooth: 3, // adjust smoothness (1 = normal, >1 = smoother)
-      effects: true, // allow data-speed / data-lag
-    });
+    // Simulate loading time and preload images
+    const preloadImages = () => {
+      const imageUrls = [
+        "https://res.cloudinary.com/dmeicehn2/image/upload/v1758428026/Gemini_Generated_Image_wnn3zbwnn3zbwnn3_1_juxmnk.png",
+        "https://res.cloudinary.com/dmeicehn2/image/upload/v1758192732/7e8c8b61-58cb-480f-ac26-c2a1de3a251c_1_dfalab.png",
+        "https://res.cloudinary.com/dmeicehn2/image/upload/v1758167935/1c51379e-5067-48c0-8812-c29d293976bc_1_iv04xy.png",
+        "https://res.cloudinary.com/dmeicehn2/image/upload/v1758383421/7e6ab61e-eecb-4c9e-8efb-b2039c2dcdb5_qkia3e.png",
+        "https://res.cloudinary.com/dmeicehn2/image/upload/v1758386355/1c0345de-d51a-45be-bf39-f10c75b1dc71_b2qtke.png"
+      ];
 
-    // Parallax effect for the first (background) image - moves very slowly
-    gsap.to(".first-img", {
-      yPercent: 10, // moves slower (less distance)
-      ease: "none",
-      scrollTrigger: {
-        trigger: ".hero",
-        start: "top bottom",
-        end: "bottom top",
-        scrub: true,
-      },
-    });
+      const loadPromises = imageUrls.map(url => {
+        return new Promise((resolve) => {
+          const img = new Image();
+          img.onload = resolve;
+          img.onerror = resolve; // resolve even if image fails to load
+          img.src = url;
+        });
+      });
 
-    // Parallax effect for the second image - moves faster
-    gsap.to(".second-img", {
-      yPercent: -80, // moves faster (more distance)
-      ease: "none",
-      scrollTrigger: {
-        trigger: ".hero",
-        start: "top bottom",
-        end: "bottom top",
-        scrub: true,
-      },
-    });
-
-    // Flying machine 1 (Right → Left)
-    gsap.fromTo(
-      ".flying-machine",
-      { x: "100vw", y: 0 },
-      {
-        x: "-120vw",
-        duration: 10,
-        ease: "linear",
-        repeat: -1,
-      }
-    );
-
-    // Flying machine 2 (Right → Left, tilted, slower, different altitude)
-    gsap.fromTo(
-      ".flying-machine-2",
-      { x: "-130vw", y: 30, rotate: 5 }, // start from left
-      {
-        x: "120vw", // go to right
-        y: 80, // slightly downward drift
-        rotate: -10, // tilt in opposite direction
-        duration: 16, // same speed
-        ease: "linear",
-        repeat: -1,
-      }
-    );
-
-    gsap.to(".machine", {
-      y: -20,
-      duration: 2,
-      repeat: -1,
-      yoyo: true,
-      ease: "power1.inOut",
-    });
-
-    gsap.fromTo(
-      ".flying-machine-2",
-      { x: "-20vw", y: 30, rotate: 5 }, // closer to the screen
-      {
-        x: "120vw", // exit to the right
-        y: 80,
-        rotate: -10,
-        duration: 16,
-        ease: "linear",
-        repeat: -1,
-      }
-    );
-
-    gsap.fromTo(
-      ".text-up",
-      { y: 100, opacity: 0 },
-      {
-        y: 0,
-        opacity: 1,
-        duration: 1.2,
-        ease: "power3.out",
-        stagger: 0.2,
-        scrollTrigger: {
-          trigger: ".text-up", // start when text-up elements enter
-          start: "top 80%", // play when element’s top hits 80% of viewport
-          toggleActions: "play none none reverse",
-        },
-      }
-    );
-
-    return () => {
-      smoother.kill(); // cleanup on unmount
+      return Promise.all(loadPromises);
     };
+
+    // Minimum loading time of 2 seconds, or until images are loaded
+    Promise.all([
+      preloadImages(),
+      new Promise(resolve => setTimeout(resolve, 2000))
+    ]).then(() => {
+      setLoading(false);
+    });
   }, []);
+
+  useEffect(() => {
+    if (!loading) {
+      // Small delay to ensure all components are mounted
+      const timer = setTimeout(() => {
+        const smoother = ScrollSmoother.create({
+          wrapper: "#smooth-wrapper",
+          content: "#smooth-content",
+          smooth: 3,
+          effects: true,
+        });
+
+        // Refresh ScrollTrigger to recalculate positions
+        ScrollTrigger.refresh();
+
+        // Parallax effect for the first (background) image
+        gsap.to(".first-img", {
+          yPercent: 10,
+          ease: "none",
+          scrollTrigger: {
+            trigger: ".hero",
+            start: "top bottom",
+            end: "bottom top",
+            scrub: true,
+          },
+        });
+
+        // Parallax effect for the second image
+        gsap.to(".second-img", {
+          yPercent: -80,
+          ease: "none",
+          scrollTrigger: {
+            trigger: ".hero",
+            start: "top bottom",
+            end: "bottom top",
+            scrub: true,
+          },
+        });
+
+        // Flying machine 1 (Right → Left)
+        gsap.fromTo(
+          ".flying-machine",
+          { x: "100vw", y: 0 },
+          {
+            x: "-120vw",
+            duration: 10,
+            ease: "linear",
+            repeat: -1,
+          }
+        );
+
+        // Flying machine 2 (Left → Right, tilted, slower, different altitude)
+        gsap.fromTo(
+          ".flying-machine-2",
+          { x: "-130vw", y: 30, rotate: 5 },
+          {
+            x: "120vw",
+            y: 80,
+            rotate: -10,
+            duration: 16,
+            ease: "linear",
+            repeat: -1,
+          }
+        );
+
+        gsap.to(".machine", {
+          y: -20,
+          duration: 2,
+          repeat: -1,
+          yoyo: true,
+          ease: "power1.inOut",
+        });
+
+        gsap.fromTo(
+          ".flying-machine-2",
+          { x: "-20vw", y: 30, rotate: 5 },
+          {
+            x: "120vw",
+            y: 80,
+            rotate: -10,
+            duration: 16,
+            ease: "linear",
+            repeat: -1,
+          }
+        );
+
+        return () => {
+          smoother.kill();
+          ScrollTrigger.getAll().forEach(trigger => trigger.kill());
+        };
+      }, 100); // Small delay to ensure DOM is ready
+
+      return () => {
+        clearTimeout(timer);
+      };
+    }
+  }, [loading]);
+
+  // Show preloader while loading
+  if (loading) {
+    return (
+      <div className="preloader-container">
+        <div className="loader"></div>
+      </div>
+    );
+  }
 
   return (
     <>
@@ -159,7 +199,7 @@ function App() {
 
           {/* Hero Section */}
           <section className="hero relative min-h-[100vh] w-full overflow-hidden bg-[#1b1b1b] m-0 p-0">
-            {/* First (Background) Image - Now absolute instead of fixed */}
+            {/* First (Background) Image */}
             <div
               className="first-img absolute top-0 inset-0 bg-cover bg-center z-10"
               style={{
@@ -171,7 +211,7 @@ function App() {
             {/* Second Image */}
             <div
               className="second-img absolute left-0 right-0 bg-cover bg-bottom z-20 top-[45%] md:top-[60%]"
-              style={{  
+              style={{
                 height: "100%",
                 backgroundImage:
                   "url('https://res.cloudinary.com/dmeicehn2/image/upload/v1758192732/7e8c8b61-58cb-480f-ac26-c2a1de3a251c_1_dfalab.png')",
@@ -203,40 +243,7 @@ function App() {
           </section>
 
           {/* About Techfusion Section */}
-          <section className="bg-[#1b1b1b] min-h-[90vh] flex items-center justify-center">
-            <div className="relative w-[90vw] mt-14 md:w-[70vw] bg-[#1b1b1b] border-yellow-400 border-4 min-h-[70vh] rounded-4xl text-white">
-              <img
-                src="https://res.cloudinary.com/dmeicehn2/image/upload/v1758167935/1c51379e-5067-48c0-8812-c29d293976bc_1_iv04xy.png"
-                alt="Description"
-                className="machine absolute -top-8 -right-20 h-40 rounded-lg"
-              />
-
-              {/* Added class "about-text" to heading too */}
-              <p className="text-3xl text-center mt-7 text-up">Techfusion</p>
-
-              <div className="w-[80%] mx-auto mt-10 text-sm md:text-lg text-up">
-                <p>
-                  Lorem ipsum dolor sit amet consectetur adipisicing elit Lorem
-                  ipsum dolor sit amet consectetur, adipisicing elit. Recusandae
-                  vero, unde praesentium dolores animi tempora qui voluptatum
-                  nihil dolorum rem? Consequatur obcaecati amet, adipisci id
-                  illum similique voluptatum ex quas quo voluptate qui, illo
-                  omnis consectetur eos. Nobis necessitatibus voluptatem
-                  voluptates vero, impedit deleniti porro iure tempora quaerat
-                  fugit aliquam!
-                </p>
-                <p className="mt-6 pb-5">
-                  Lorem ipsum dolor, sit amet consectetur adipisicing elit Lorem
-                  ipsum dolor sit amet consectetur adipisicing elit. Earum autem
-                  quas reprehenderit quod. Possimus, hic. Sit molestiae incidunt
-                  illum fugit non, quae deleniti ratione quam dolorum similique,
-                  mollitia blanditiis eum? Quisquam modi dolores doloremque!
-                  Lorem ipsum dolor sit, amet consectetur adipisicing elit.
-                  Quaerat, cupiditate.
-                </p>
-              </div>
-            </div>
-          </section>
+          <AboutTechfusion animationsReady={!loading} />
 
           {/* Events Section */}
           <section className="bg-[#1b1b1b] text-white relative overflow-hidden">
@@ -247,12 +254,12 @@ function App() {
             <img
               src="https://res.cloudinary.com/dmeicehn2/image/upload/v1758386355/1c0345de-d51a-45be-bf39-f10c75b1dc71_b2qtke.png"
               alt="City"
-              className="absolute bottom-5 left-2 md:bottom-4 md:left-3 w-[90vw] md:w-3xl  object-contain pointer-events-none"
+              className="absolute bottom-5 left-2 md:bottom-4 md:left-3 w-[90vw] md:w-3xl object-contain pointer-events-none"
             />
           </section>
 
-          {/* Image galary Section */}
-          <section className=" h-[80vh] md:h-screen bg-[#1b1b1b] text-white pt-11">
+          {/* Image gallery Section */}
+          <section className="h-[80vh] md:h-screen bg-[#1b1b1b] text-white pt-11">
             <p className="text-3xl text-center">Insights from last year</p>
             <div className="w-[70vw] pt-7 mx-auto">
               <ImageGallery />
