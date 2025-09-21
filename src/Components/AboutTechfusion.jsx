@@ -67,10 +67,9 @@ const AboutTechfusion = ({ animationsReady = false }) => {
         <img
           src="https://res.cloudinary.com/dmeicehn2/image/upload/v1758167935/1c51379e-5067-48c0-8812-c29d293976bc_1_iv04xy.png"
           alt="Description"
-          className="machine absolute -top-8 -right-20 h-40 rounded-lg"
+          className="machine absolute -top-8 md:-right-20 h-40 rounded-lg"
         />
 
-        {/* Added class "about-text" to heading too */}
         <p className="text-3xl text-center mt-7 text-up">Techfusion</p>
 
         <div className="w-[80%] mx-auto mt-10 text-sm md:text-lg text-up">

@@ -2,7 +2,7 @@ import React from "react";
 
 const Navbar = () => {
   return (
-    <div className="fixed top-0 left-0 right-0 z-[9999] bg-white/0 backdrop-blur-sm shadow-md">
+    <div className="fixed top-0 left-0 right-0 z-[9999] bg-white/0 backdrop-blur-sm shadow-md ">
       <div className="flex justify-between items-center">
         {/* Logo */}
         <div>
@@ -30,7 +30,7 @@ const Navbar = () => {
           <a
             href="{link}"
             rel="noopener noreferrer"
-            className="mt-4 px-6 py-2 mr-10 rounded-xl text-center
+            className="mt-4 px-6 py-2  rounded-xl text-center
              font-orbitron font-semibold 
              text-neonCyan border border-neonCyan 
              bg-white/10 backdrop-blur-sm 

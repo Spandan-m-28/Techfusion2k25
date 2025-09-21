@@ -198,7 +198,7 @@ function App() {
           <Navbar />
 
           {/* Hero Section */}
-          <section className="hero relative min-h-[100vh] w-full overflow-hidden bg-[#1b1b1b] m-0 p-0">
+          <section className="hero relative min-h-[100vh] w-screen overflow-hidden bg-[#1b1b1b] m-0 p-0">
             {/* First (Background) Image */}
             <div
               className="first-img absolute top-0 inset-0 bg-cover bg-center z-10"
@@ -259,7 +259,7 @@ function App() {
           </section>
 
           {/* Image gallery Section */}
-          <section className="h-[80vh] md:h-[115vh] bg-[#1b1b1b] text-white pt-11">
+          <section className="h-[80vh] md:h-[112vh] bg-[#1b1b1b] text-white pt-11">
             <p className="text-3xl text-center">Insights from last year</p>
             <div className="w-[70vw] pt-7 mx-auto">
               <ImageGallery />
