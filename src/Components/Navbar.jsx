@@ -14,7 +14,7 @@ const Navbar = () => {
         </div>
 
         {/* Navigation links */}
-        <div className="mr-9 flex justify-center items-center space-x-7 text-white">
+        <div className="exo-2-font mr-9 flex justify-center items-center space-x-7 text-white">
           <a className="hidden md:block relative text-lg group" href="#">
             About&nbsp;Us
             <span className="absolute left-1/2 bottom-0 w-0 h-0.5 bg-white transition-all duration-300 group-hover:w-full group-hover:left-0"></span>
@@ -30,7 +30,7 @@ const Navbar = () => {
           <a
             href="{link}"
             rel="noopener noreferrer"
-            className="mt-4 px-6 py-2  rounded-xl text-center
+            className="mt-1 px-6 py-2  rounded-xl text-center
              font-orbitron font-semibold 
              text-neonCyan border border-neonCyan 
              bg-white/10 backdrop-blur-sm 

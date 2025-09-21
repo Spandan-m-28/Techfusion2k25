@@ -89,17 +89,17 @@ export default function TiltedCard({
 
         {/* TEXT (60%) */}
         <div className="w-[60%] p-6 flex flex-col justify-center">
-          <h2 className="text-2xl font-bold mb-3 text-white drop-shadow-md">
+          <h2 className="orbitron-font text-2xl font-bold mb-3 text-white drop-shadow-md">
             {title}
           </h2>
-          <p className="text-gray-100 leading-relaxed drop-shadow-sm">
+          <p className="exo-2-font text-gray-100 leading-relaxed drop-shadow-sm">
             {textContent}
           </p>
           <a
             href="{link}"
             target="_blank" // opens in new tab (remove if you want same tab)
             rel="noopener noreferrer"
-            className="mt-4 px-6 py-2 rounded-xl text-center
+            className="exo-2-font mt-4 px-6 py-2 rounded-xl text-center
              font-orbitron font-semibold 
              text-neonCyan border border-neonCyan 
              bg-white/10 backdrop-blur-sm 

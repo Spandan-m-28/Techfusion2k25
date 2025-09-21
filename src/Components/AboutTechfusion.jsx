@@ -1,6 +1,7 @@
 import { useEffect } from "react";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
+import "../index.css"
 
 // Register the plugin
 gsap.registerPlugin(ScrollTrigger);
@@ -67,12 +68,12 @@ const AboutTechfusion = ({ animationsReady = false }) => {
         <img
           src="https://res.cloudinary.com/dmeicehn2/image/upload/v1758167935/1c51379e-5067-48c0-8812-c29d293976bc_1_iv04xy.png"
           alt="Description"
-          className="machine absolute -top-8 right-0 md:-right-20 h-40 rounded-lg"
+          className="machine absolute -top-8 -right-0 md:-right-20 h-40 rounded-lg"
         />
 
-        <p className="text-3xl text-center mt-7 text-up">Techfusion</p>
+        <p className="orbitron-font text-3xl text-center mt-7 text-up">Techfusion</p>
 
-        <div className="w-[80%] mx-auto mt-10 text-sm md:text-lg text-up">
+        <div className="exo-2-font w-[80%] mx-auto mt-10 text-sm md:text-lg text-up">
           <p>
             Lorem ipsum dolor sit amet consectetur adipisicing elit Lorem
             ipsum dolor sit amet consectetur, adipisicing elit. Recusandae

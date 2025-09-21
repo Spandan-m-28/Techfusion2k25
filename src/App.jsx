@@ -247,7 +247,7 @@ function App() {
 
           {/* Events Section */}
           <section className="bg-[#1b1b1b] text-white relative overflow-hidden">
-            <p className="text-3xl text-center pt-8">Our Events</p>
+            <p className="orbitron-font text-3xl text-center pt-8">Our Events</p>
             <CardsSection cards={cards} />
 
             {/* City Image at bottom left */}
@@ -260,7 +260,7 @@ function App() {
 
           {/* Image gallery Section */}
           <section className="h-[80vh] md:h-[112vh] bg-[#1b1b1b] text-white pt-11">
-            <p className="text-3xl text-center">Insights from last year</p>
+            <p className="orbitron-font text-3xl text-center">Insights from last year</p>
             <div className="w-[70vw] pt-7 mx-auto">
               <ImageGallery />
             </div>
