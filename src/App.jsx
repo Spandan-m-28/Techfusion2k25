@@ -23,7 +23,7 @@ function App() {
       altText: "CloudVerse",
       title: "CloudVerse",
       textContent:
-        "This is Kendrick Lamar's GNX album cover with some description.",
+        "An intensive 2 day workshop on cloud computing and AWS hands-on included.",
       link: "#",
     },
     {
@@ -32,7 +32,7 @@ function App() {
       altText: "CodeDuet",
       title: "Code Duet",
       textContent:
-        "The Off-Season showcases J. Cole's lyrical mastery and storytelling.",
+        '"Two minds, one code" – A pair coding competition to solve problems collaboratively and showcase teamwork.',
       link: "#",
     },
     {
@@ -40,7 +40,7 @@ function App() {
         "https://i.scdn.co/image/ab67616d0000b2739b0ed2236b9e6b7d41cdbb0b",
       altText: "CodeCrush",
       title: "CodeCrush",
-      textContent: "Scorpion by Drake mixes rap and R&B into a double album.",
+      textContent: '"Code until you crack it" - An online coding competition with Novice and Expert tracks to test problem-solving skills.',
       link: "#",
     },
     {
@@ -49,7 +49,7 @@ function App() {
       altText: "CheckMate",
       title: "CheckMate",
       textContent:
-        "Utopia is Travis Scott's latest experimental hip-hop project.",
+         '"Think. Strategize. Checkmate." - A chess competition to test strategic thinking and mental agility.',
       link: "#",
     },
   ];

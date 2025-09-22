@@ -28,8 +28,9 @@ const Navbar = ({ smoother }) => {
         <div>
           <img
             src="https://res.cloudinary.com/dmeicehn2/image/upload/v1758469447/1dfdabd2-d4e3-4dcf-8f9c-1406651f3b3c_c5rsvw.png"
-            className="h-20 ml-7 my-auto"
+            className="h-20 ml-7 my-auto cursor-pointer"
             alt="LOGO"
+            onClick={() => window.open("https://wcesait.in", "_blank")}
           />
         </div>
 
@@ -44,7 +45,7 @@ const Navbar = ({ smoother }) => {
               bg-white/10 backdrop-blur-sm 
               transition-all duration-300 
               hover:scale-105 hover:bg-neonCyan/20 
-              hover:shadow-[0_0_10px_#0ff,0_0_20px_#0ff]"
+              hover:shadow-[0_0_10px_#0ff,0_0_20px_#0ff] cursor-pointer"
           >
             Register !
           </button>

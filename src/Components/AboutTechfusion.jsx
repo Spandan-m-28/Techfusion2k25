@@ -75,23 +75,13 @@ const AboutTechfusion = ({ animationsReady = false }) => {
 
         <div className="exo-2-font w-[80%] mx-auto mt-10 text-sm md:text-lg text-up">
           <p>
-            Lorem ipsum dolor sit amet consectetur adipisicing elit Lorem
-            ipsum dolor sit amet consectetur, adipisicing elit. Recusandae
-            vero, unde praesentium dolores animi tempora qui voluptatum
-            nihil dolorum rem? Consequatur obcaecati amet, adipisci id
-            illum similique voluptatum ex quas quo voluptate qui, illo
-            omnis consectetur eos. Nobis necessitatibus voluptatem
-            voluptates vero, impedit deleniti porro iure tempora quaerat
-            fugit aliquam!
+            Techfusion is a National Level Mega Event conducted by the Student's Association of Information Technology (SAIT), established in 2003. SAIT is a vibrant student-led club formed by the IT Department at Walchand College of Engineering, Sangli.
           </p>
           <p className="mt-6 pb-5 text-up">
-            Lorem ipsum dolor, sit amet consectetur adipisicing elit Lorem
-            ipsum dolor sit amet consectetur adipisicing elit. Earum autem
-            quas reprehenderit quod. Possimus, hic. Sit molestiae incidunt
-            illum fugit non, quae deleniti ratione quam dolorum similique,
-            mollitia blanditiis eum? Quisquam modi dolores doloremque!
-            Lorem ipsum dolor sit, amet consectetur adipisicing elit.
-            Quaerat, cupiditate.
+            This two-day flagship event brings together like-minded individuals from across the country under one roof to participate in a variety of technical and non-technical competitions. Techfusion provides a platform to enhance technical knowledge, professional development, and soft skills, encouraging innovation, collaboration, and healthy competition among students.
+          </p>
+          <p className="mt-6 pb-5 text-up">
+            The event features multiple flagship activities, including CloudVerse, CodeCrush, CodeDuet, and ChessMate, along with several engaging workshops.
           </p>
         </div>
       </div>
