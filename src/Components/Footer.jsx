@@ -84,7 +84,7 @@ export default function Footer() {
         </div>
 
         {/* Contact Section (replacing SAIT logo) */}
-        <div className="flex flex-col items-center md:items-start ml-20 text-center md:text-left gap-1">
+        <div className="flex flex-col items-center md:items-start md:ml-20 text-center md:text-left gap-1">
           <h3 className="orbitron-font text-lg font-semibold mb-4">
             Contact Us
           </h3>

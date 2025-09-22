@@ -30,9 +30,9 @@ function App() {
       imageSrc:
         "https://i.scdn.co/image/ab67616d0000b27335b28ec4355f7eebfdfc31d52",
       altText: "CodeDuet",
-      title: "Code Duet",
+      title: "CodeDuet",
       textContent:
-        '"Two minds, one code" – A pair coding competition to solve problems collaboratively and showcase teamwork.',
+        '"Two minds, one code" - A pair coding competition to solve problems collaboratively and showcase teamwork.',
       link: "#",
     },
     {
