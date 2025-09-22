@@ -28,11 +28,11 @@ export default function Footer() {
         </div>
 
         {/* Social Section */}
-        <div className="flex flex-col items-start text-left ml-12 md:ml-32 justify-center">
+        <div className="flex flex-col items-center md:items-start text-center md:text-left ml-0 md:ml-32 justify-center">
           <h3 className="text-lg font-semibold mb-2 orbitron-font">
             Stay Tuned!
           </h3>
-          <div className="flex gap-5 items-center">
+          <div className="flex gap-5 items-center justify-center md:justify-start">
             {/* Replace with your SVGs for Instagram, LinkedIn, GitHub, Twitter (X), Discord */}
             <svg
               xmlns="http://www.w3.org/2000/svg"
@@ -84,11 +84,13 @@ export default function Footer() {
         </div>
 
         {/* Contact Section (replacing SAIT logo) */}
-        <div className="flex flex-col items-center md:items-start md:ml-20 text-center md:text-left gap-1">
+        <div className="flex flex-col items-center md:items-start md:ml-20 text-center md:text-left gap-1 md:gap-0 ">
           <h3 className="orbitron-font text-lg font-semibold mb-4">
             Contact Us
           </h3>
-          <p className="exo-2-font text-sm">Upanishad Kachroo - +91 7683005944</p>
+          <p className="exo-2-font text-sm">
+            Upanishad Kachroo - +91 7683005944
+          </p>
           <p className="exo-2-font text-sm">Sai Badave - +91 9322595377</p>
           <p className="exo-2-font text-sm">
             Email:{" "}
