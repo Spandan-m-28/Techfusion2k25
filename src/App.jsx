@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useEffect, useState ,useRef} from "react";
 import "./App.css";
 import Navbar from "./Components/Navbar";
 import gsap from "gsap";
@@ -13,6 +13,8 @@ gsap.registerPlugin(ScrollTrigger, ScrollSmoother);
 
 function App() {
   const [loading, setLoading] = useState(true);
+  const [exitAnimation, setExitAnimation] = useState(false);
+  const preloaderRef = useRef(null);
 
   const cards = [
     {
@@ -60,10 +62,10 @@ function App() {
         "https://res.cloudinary.com/dmeicehn2/image/upload/v1758192732/7e8c8b61-58cb-480f-ac26-c2a1de3a251c_1_dfalab.png",
         "https://res.cloudinary.com/dmeicehn2/image/upload/v1758167935/1c51379e-5067-48c0-8812-c29d293976bc_1_iv04xy.png",
         "https://res.cloudinary.com/dmeicehn2/image/upload/v1758383421/7e6ab61e-eecb-4c9e-8efb-b2039c2dcdb5_qkia3e.png",
-        "https://res.cloudinary.com/dmeicehn2/image/upload/v1758386355/1c0345de-d51a-45be-bf39-f10c75b1dc71_b2qtke.png"
+        "https://res.cloudinary.com/dmeicehn2/image/upload/v1758386355/1c0345de-d51a-45be-bf39-f10c75b1dc71_b2qtke.png",
       ];
 
-      const loadPromises = imageUrls.map(url => {
+      const loadPromises = imageUrls.map((url) => {
         return new Promise((resolve) => {
           const img = new Image();
           img.onload = resolve;
@@ -78,9 +80,12 @@ function App() {
     // Minimum loading time of 2 seconds, or until images are loaded
     Promise.all([
       preloadImages(),
-      new Promise(resolve => setTimeout(resolve, 2000))
+      new Promise((resolve) => setTimeout(resolve, 2000)), // min load time
     ]).then(() => {
-      setLoading(false);
+      setExitAnimation(true); // start animation
+      setTimeout(() => {
+        setLoading(false); // remove preloader after animation
+      }, 1000); // must match animation duration
     });
   }, []);
 
@@ -171,7 +176,7 @@ function App() {
 
         return () => {
           smoother.kill();
-          ScrollTrigger.getAll().forEach(trigger => trigger.kill());
+          ScrollTrigger.getAll().forEach((trigger) => trigger.kill());
         };
       }, 100); // Small delay to ensure DOM is ready
 
@@ -184,7 +189,10 @@ function App() {
   // Show preloader while loading
   if (loading) {
     return (
-      <div className="preloader-container">
+      <div
+        ref={preloaderRef}
+        className={`preloader-container ${exitAnimation ? "exit" : ""}`}
+      >
         <div className="loader"></div>
       </div>
     );
@@ -246,8 +254,13 @@ function App() {
           <AboutTechfusion id="aboutUs" animationsReady={!loading} />
 
           {/* Events Section */}
-          <section id="events" className="bg-[#1b1b1b] text-white relative overflow-hidden">
-            <p className="orbitron-font text-3xl text-center pt-8">Our Events</p>
+          <section
+            id="events"
+            className="bg-[#1b1b1b] text-white relative overflow-hidden"
+          >
+            <p className="orbitron-font text-3xl text-center pt-8">
+              Our Events
+            </p>
             <CardsSection cards={cards} />
 
             {/* City Image at bottom left */}
@@ -260,7 +273,9 @@ function App() {
 
           {/* Image gallery Section */}
           <section className="h-[80vh] md:h-[112vh] bg-[#1b1b1b] text-white pt-11">
-            <p className="orbitron-font text-3xl text-center">Insights from last year</p>
+            <p className="orbitron-font text-3xl text-center">
+              Insights from last year
+            </p>
             <div className="w-[70vw] pt-7 mx-auto">
               <ImageGallery />
             </div>

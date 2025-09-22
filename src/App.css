@@ -1,18 +1,23 @@
-/* Preloader Container */
+/* ================================
+   PRELOADER BASE
+================================ */
 .preloader-container {
   position: fixed;
   top: 0;
   left: 0;
   width: 100vw;
   height: 100vh;
-  background-color: #1b1b1b; /* Match your app's background */
+  background-color: #1b1b1b;
   display: flex;
   justify-content: center;
   align-items: center;
   z-index: 9999;
+  overflow: hidden;
 }
 
-/* Preloader Animation */
+/* ================================
+   WAVY LOADER TEXT EFFECT
+================================ */
 .loader {
   width: fit-content;
   font-size: 40px;
@@ -20,26 +25,80 @@
   font-family: system-ui, sans-serif;
   font-weight: bold;
   text-transform: uppercase;
-  color: #0000;
-  -webkit-text-stroke: 1px #fff; /* Changed to white to match your theme */
+  color: transparent;
+  -webkit-text-stroke: 1px #fff;
+  -webkit-background-clip: text;
+  background-clip: text;
+
+  /* Wavy effect with gradients */
   background:
-    radial-gradient(1.13em at 50% 1.6em, #fff 99%, #0000 101%) calc(50% - 1.6em) 0/3.2em 100% text,
-    radial-gradient(1.13em at 50% -0.8em, #0000 99%, #fff 101%) 50% .8em/3.2em 100% repeat-x text;
-  animation: l9 2s linear infinite;
+    radial-gradient(1.13em at 50% 1.6em, #fff 99%, #0000 101%) calc(50% - 1.6em) 0 / 3.2em 100% text,
+    radial-gradient(1.13em at 50% -0.8em, #0000 99%, #fff 101%) 50% .8em / 3.2em 100% repeat-x text;
+
+  position: relative;
+  z-index: 1;
+  animation: l9 2s linear infinite; /* wavy effect */
 }
 
 .loader:before {
   content: "TechFusion 2K25";
 }
 
+/* Keyframes for wavy movement */
 @keyframes l9 {
   to {
-    background-position: calc(50% + 1.6em) 0, calc(50% + 3.2em) .8em;
+    background-position: calc(50% + 1.6em) 0,
+                         calc(50% + 3.2em) 0.8em;
   }
 }
 
-/* Optional: Add fade-out transition when loading completes */
-.preloader-container.fade-out {
+/* ================================
+   EXIT ANIMATIONS
+================================ */
+.preloader-container.exit .loader {
+  /* run wavy + exit animation together */
+  animation: l9 2s linear infinite, loaderExitDramatic 1s forwards;
+}
+
+/* Loader exit animation (scale + blur + fade) */
+@keyframes loaderExitDramatic {
+  0% {
+    opacity: 1;
+    transform: scale(1);
+    filter: blur(0px);
+  }
+  100% {
+    opacity: 0;
+    transform: scale(30);
+    filter: blur(0px);
+  }
+}
+
+/* Container fade out (after loader finishes) */
+.preloader-container.exit {
+  animation: containerExitDramatic 1s ease-out 1s forwards;
+}
+
+@keyframes containerExitDramatic {
+  0% {
+    background-color: #1b1b1b;
+    opacity: 1;
+  }
+  100% {
+    background-color: transparent;
+    opacity: 0;
+    visibility: hidden;
+  }
+}
+
+/* Content hidden until preloader finishes */
+.app-content {
   opacity: 0;
-  transition: opacity 0.5s ease-out;
+  transform: translateY(20px);
+  transition: opacity 1s ease-in-out, transform 1s ease-in-out;
+}
+
+.app-content.visible {
+  opacity: 1;
+  transform: translateY(0);
 }
