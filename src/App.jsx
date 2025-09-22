@@ -246,7 +246,7 @@ function App() {
               TechFusion 2K25
             </div>
             <div className="orbitron-font absolute bottom-20 md:bottom-20 left-6 md:left-16 text-white text-xl md:text-3xl font-semibold z-30 flicker-subtext">
-              Beyond the limitations next to perfection
+              Beyond The Limitation Next To The Perfection
             </div>
           </section>
 
