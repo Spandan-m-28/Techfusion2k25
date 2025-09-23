@@ -102,3 +102,9 @@
   opacity: 1;
   transform: translateY(0);
 }
+
+.bg-white\/10 {
+  background-color: rgba(255, 255, 255, 0.1) !important;
+  -webkit-backdrop-filter: blur(6px); /* Safari fix */
+  backdrop-filter: blur(6px);
+}

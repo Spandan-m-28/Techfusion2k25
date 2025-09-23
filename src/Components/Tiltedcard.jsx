@@ -1,6 +1,7 @@
 import { useRef, useState } from "react";
 import { motion, useMotionValue, useSpring } from "framer-motion";
 
+
 const springValues = {
   damping: 30,
   stiffness: 100,

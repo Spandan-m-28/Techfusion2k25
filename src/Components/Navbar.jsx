@@ -28,7 +28,7 @@ const Navbar = ({ smoother }) => {
         <div className="flex  gap-0.5">
           <img
             src="https://res.cloudinary.com/dmeicehn2/image/upload/v1758469447/1dfdabd2-d4e3-4dcf-8f9c-1406651f3b3c_c5rsvw.png"
-            className="h-20 ml-7 my-auto cursor-pointer"
+            className="h-20 ml-1.5 md:ml-7 my-auto cursor-pointer"
             alt="LOGO"
             onClick={() => window.open("https://wcesait.in", "_blank")}
           />
