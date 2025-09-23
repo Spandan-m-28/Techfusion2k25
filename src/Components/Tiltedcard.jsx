@@ -67,9 +67,9 @@ export default function TiltedCard({
       onMouseLeave={handleMouseLeave}
     >
       <motion.div
-        className="relative flex rounded-[20px] overflow-hidden shadow-xl 
-                   [transform-style:preserve-3d] 
-                   bg-white/20 backdrop-blur-lg border border-white/30"
+        className="relative flex flex-col md:flex-row rounded-[20px] overflow-hidden shadow-xl 
+             [transform-style:preserve-3d] 
+             bg-white/20 backdrop-blur-lg border border-white/30"
         style={{
           rotateX,
           rotateY,
@@ -78,8 +78,8 @@ export default function TiltedCard({
           height: "100%",
         }}
       >
-        {/* IMAGE (40%) */}
-        <div className="w-[40%]">
+        {/* IMAGE (Top on mobile, left on md+) */}
+        <div className="w-full md:w-[40%] h-[45%] md:h-full">
           <motion.img
             src={imageSrc}
             alt={altText}
@@ -87,8 +87,8 @@ export default function TiltedCard({
           />
         </div>
 
-        {/* TEXT (60%) */}
-        <div className="w-[60%] p-6 flex flex-col justify-center">
+        {/* TEXT (Bottom on mobile, right on md+) */}
+        <div className="w-full md:w-[60%] p-6 flex flex-col justify-center">
           <h2 className="orbitron-font text-2xl font-bold mb-3 text-white drop-shadow-md">
             {title}
           </h2>
@@ -96,16 +96,16 @@ export default function TiltedCard({
             {textContent}
           </p>
           <a
-            href="{link}"
-            target="_blank" // opens in new tab (remove if you want same tab)
+            href={link}
+            target="_blank"
             rel="noopener noreferrer"
             className="exo-2-font mt-4 px-6 py-2 rounded-xl text-center
-             font-orbitron font-semibold 
-             text-neonCyan border border-neonCyan 
-             bg-white/10 backdrop-blur-sm 
-             transition-all duration-300 
-             hover:scale-105 hover:bg-neonCyan/20 
-             hover:shadow-[0_0_10px_#0ff,0_0_20px_#0ff]"
+              font-orbitron font-semibold 
+              text-neonCyan border border-neonCyan 
+              bg-white/10 backdrop-blur-sm 
+              transition-all duration-300 
+              hover:scale-105 hover:bg-neonCyan/20 
+              hover:shadow-[0_0_10px_#0ff,0_0_20px_#0ff]"
           >
             Register !
           </a>

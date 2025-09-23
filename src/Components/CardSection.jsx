@@ -66,10 +66,11 @@ const CardsSection = ({ cards }) => {
               altText={card.altText}
               title={card.title}
               textContent={card.textContent}
-              containerHeight={isMd ? "250px" : "250px"}   // ✅ responsive
-              containerWidth={isMd ? "550px" : "85vw"}    // ✅ responsive
+              containerHeight={isMd ? "250px" : "450px"}  
+              containerWidth={isMd ? "550px" : "85vw"}    
               scaleOnHover={isMd ? 1.1 : 1.05}
               rotateAmplitude={isMd ? 10 : 8}
+              link={card.link}
             />
           </div>
         ))}

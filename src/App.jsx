@@ -19,38 +19,38 @@ function App() {
   const cards = [
     {
       imageSrc:
-        "https://i.scdn.co/image/ab67616d0000b273d9985092cd88bffd97653b58",
+        "https://res.cloudinary.com/dmeicehn2/image/upload/v1758597502/IMG_1763_fpzjow.jpg",
       altText: "CloudVerse",
       title: "CloudVerse",
       textContent:
         "An intensive 2 day workshop on cloud computing and AWS hands-on included.",
-      link: "#",
+      link: "https://unstop.com/o/QOKsZI7?utm_medium=Share&utm_source=mayurrat2702&utm_campaign=Workshops",
     },
     {
       imageSrc:
-        "https://i.scdn.co/image/ab67616d0000b27335b28ec4355f7eebfdfc31d52",
+        "https://res.cloudinary.com/dmeicehn2/image/upload/v1758597504/IMG_1397_boipvi.jpg",
       altText: "CodeDuet",
       title: "CodeDuet",
       textContent:
         '"Two minds, one code" - A pair coding competition to solve problems collaboratively and showcase teamwork.',
-      link: "#",
+      link: "https://unstop.com/o/FUrZE4m?utm_medium=Share&utm_source=mayurrat2702&utm_campaign=Online_coding_challenge",
     },
     {
       imageSrc:
-        "https://i.scdn.co/image/ab67616d0000b2739b0ed2236b9e6b7d41cdbb0b",
+        "https://res.cloudinary.com/dmeicehn2/image/upload/v1758597481/WhatsApp_Image_2025-09-23_at_07.28.30_b11ad0cb_zfkf5j.jpg",
       altText: "CodeCrush",
       title: "CodeCrush",
       textContent: '"Code until you crack it" - An online coding competition with Novice and Expert tracks to test problem-solving skills.',
-      link: "#",
+      link: "https://unstop.com/o/tDB0FnW?utm_medium=Share&utm_source=mayurrat2702&utm_campaign=Online_coding_challenge",
     },
     {
       imageSrc:
-        "https://i.scdn.co/image/ab67616d0000b27361a6e47a8c5e54d61f87f3ac",
+        "https://res.cloudinary.com/dmeicehn2/image/upload/v1758597488/WhatsApp_Image_2025-09-23_at_07.22.29_c79f9d86_uxp5kf.jpg",
       altText: "CheckMate",
       title: "CheckMate",
       textContent:
          '"Think. Strategize. Checkmate." - A chess competition to test strategic thinking and mental agility.',
-      link: "#",
+      link: "https://unstop.com/o/z1O7SRk?utm_medium=Share&utm_source=mayurrat2702&utm_campaign=Competitions",
     },
   ];
 
