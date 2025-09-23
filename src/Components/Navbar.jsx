@@ -25,7 +25,7 @@ const Navbar = ({ smoother }) => {
     <div className="fixed top-0 left-0 right-0 z-[9999] bg-white/0 backdrop-blur-sm shadow-md ">
       <div className="flex justify-between items-center">
         {/* Logo */}
-        <div>
+        <div className="flex  gap-0.5">
           <img
             src="https://res.cloudinary.com/dmeicehn2/image/upload/v1758469447/1dfdabd2-d4e3-4dcf-8f9c-1406651f3b3c_c5rsvw.png"
             className="h-20 ml-7 my-auto cursor-pointer"
