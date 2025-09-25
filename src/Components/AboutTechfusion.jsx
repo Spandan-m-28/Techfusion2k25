@@ -63,8 +63,8 @@ const AboutTechfusion = ({ animationsReady = false }) => {
   }, [animationsReady]); // Re-run when animationsReady changes
 
   return (
-    <section className="about-techfusion-section bg-[#1b1b1b] min-h-[90vh] flex items-center justify-center">
-      <div className="relative w-[90vw] mt-14 md:w-[70vw] bg-[#1b1b1b] border-yellow-400 border-4 min-h-[70vh] rounded-4xl text-white">
+    <section className="about-techfusion-section bg-[#1b1b1b] flex items-center justify-center">
+      <div className="relative w-[90vw] mt-14 mb-28 md:w-[70vw] bg-[#1b1b1b] border-yellow-400 border-4  rounded-4xl text-white">
         <img
           src="https://res.cloudinary.com/dmeicehn2/image/upload/v1758167935/1c51379e-5067-48c0-8812-c29d293976bc_1_iv04xy.png"
           alt="Description"
@@ -73,7 +73,7 @@ const AboutTechfusion = ({ animationsReady = false }) => {
 
         <p className="orbitron-font text-3xl text-center mt-7 text-up">Techfusion</p>
 
-        <div className="exo-2-font w-[80%] mx-auto mt-10 text-sm md:text-lg text-up">
+        <div className="exo-2-font mb-20 w-[80%] mx-auto mt-10 text-sm md:text-lg text-up">
           <p>
             Techfusion is a National Level Mega Event conducted by the Students' Association of Information Technology (SAIT), established in 2003. SAIT is a vibrant student-led club formed by the IT Department at Walchand College of Engineering, Sangli.
           </p>
