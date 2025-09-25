@@ -272,7 +272,7 @@ function App() {
           </section>
 
           {/* Image gallery Section */}
-          <section className="h-[80vh] md:h-[112vh] bg-[#1b1b1b] text-white pt-11">
+          <section className="bg-[#1b1b1b] text-white pt-11 pb-16">
             <p className="orbitron-font text-3xl text-center">
               Insights from last year
             </p>
